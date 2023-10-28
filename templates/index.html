@@ -17,12 +17,8 @@
       <input type="submit" value="Generar PDF" />
     </form>
     <h1>PDF Viewer</h1>
-    {% if pdf_path %}
-    <iframe
-      src="{{ url_for('static', filename='temp_resultado.pdf') }}"
-      width="100%"
-      height="500px"
-    ></iframe>
+    {% if pdf_url %}
+    <iframe src="{{ pdf_url }}" width="100%" height="500px"></iframe>
     {% else %}
     <p>El PDF aún no se ha generado.</p>
     {% endif %}
