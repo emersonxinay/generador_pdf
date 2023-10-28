@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Generador de PDF</title>
+  </head>
+  <body>
+    <h1>Generador de PDF con Imágenes</h1>
+    <form action="/generate_pdf" method="post" enctype="multipart/form-data">
+      <input
+        type="file"
+        name="file[]"
+        multiple
+        accept="image/*"
+        required
+      /><br /><br />
+      <input type="submit" value="Generar PDF" />
+    </form>
+    <h1>PDF Viewer</h1>
+    {% if pdf_path %}
+    <iframe
+      src="{{ url_for('static', filename='temp_resultado.pdf') }}"
+      width="100%"
+      height="500px"
+    ></iframe>
+    {% else %}
+    <p>El PDF aún no se ha generado.</p>
+    {% endif %}
+  </body>
+</html>
